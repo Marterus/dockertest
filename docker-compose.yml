@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./docker/nginx/:/etc/nginx/conf.d
+    networks:
+      - front
+      - backend
