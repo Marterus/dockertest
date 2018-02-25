@@ -12,8 +12,8 @@ services:
         ports:
             - "80:80"
     apache:
-        image: marterus/dockertest:latest
-        #build: ./docker/apache
+        #image: marterus/dockertest:latest
+        build: ./docker/apache
         volumes:
             - ./:/var/www/
             - ./docker/apache/php.ini:/usr/local/etc/php/php.ini
