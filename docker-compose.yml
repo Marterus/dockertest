@@ -19,7 +19,10 @@ services:
             - ./docker/apache/php.ini:/usr/local/etc/php/php.ini
         networks:
             - backend
-
+    redis:
+        image: redis
+        networks:
+            - backend
     db:
         image: "mysql:5.7"
         volumes:

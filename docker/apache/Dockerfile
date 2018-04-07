@@ -17,5 +17,9 @@ RUN curl -o ioncube.tar.gz http://downloads3.ioncube.com/loader_downloads/ioncub
     && rm -Rf ioncube.tar.gz ioncube \
     && docker-php-ext-enable ioncube_loader_lin_5.6
 
+RUN pecl install -o -f redis \
+    &&  rm -rf /tmp/pear \
+    &&  echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
+
 # Apache modules
 RUN a2enmod rewrite
