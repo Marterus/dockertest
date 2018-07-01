@@ -14,11 +14,14 @@ services:
     apache:
         #image: marterus/dockertest:latest
         build: ./docker/apache
+        tty: true
         volumes:
             - ./:/var/www/
             - ./docker/apache/php.ini:/usr/local/etc/php/php.ini
         networks:
             - backend
+        ports:
+            - "8000:8000"
     redis:
         image: redis
         networks:
