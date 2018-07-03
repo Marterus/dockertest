@@ -27,8 +27,12 @@ RUN curl -sS https://getcomposer.org/installer | php \
         && mv composer.phar /usr/local/bin/ \
         && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
+COPY  my.conf /etc/apache2/sites-available/
+
+RUN ln -s /etc/apache2/sites-available/my.conf /etc/apache2/sites-enabled/my.conf
+
 ENV COMPOSER_ALLOW_SUPERUSER 1
-WORKDIR /var/www
+WORKDIR /
 
 # Apache modules
 RUN a2enmod rewrite
